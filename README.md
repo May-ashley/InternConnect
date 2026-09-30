@@ -204,4 +204,4 @@ This project demonstrates practical experience in:
 Higher Diploma in Infocomm Technology  
 British United College
 
-For recruitment or portfolio review, please refer to the repository source code and project documentation.
+
