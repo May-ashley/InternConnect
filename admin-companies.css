@@ -1,0 +1,1625 @@
+/* ==================================================
+   INTERNCONNECT ADMIN
+   COMPANIES PAGE
+   SAME THEME AS ADMIN DASHBOARD
+================================================== */
+
+
+/* ==================================================
+   ROOT VARIABLES
+================================================== */
+
+:root {
+
+    --primary: #6C63FF;
+    --primary-dark: #5148E5;
+    --secondary: #8B7BFF;
+
+    --dark: #161616;
+    --text: #5D6472;
+    --muted: #8A8F9C;
+
+    --white: #FFFFFF;
+
+    --background: #F3EFFC;
+
+    --glass: rgba(255, 255, 255, 0.48);
+    --glass-strong: rgba(255, 255, 255, 0.68);
+
+    --border: rgba(255, 255, 255, 0.72);
+
+    --shadow:
+        0 20px 50px rgba(108, 99, 255, 0.14);
+
+    --shadow-hover:
+        0 25px 55px rgba(108, 99, 255, 0.20);
+
+    --radius: 28px;
+
+}
+
+
+/* ==================================================
+   RESET
+================================================== */
+
+*,
+*::before,
+*::after {
+
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+* {
+
+    font-family: "Outfit", sans-serif;
+
+}
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background: var(--background);
+
+    color: var(--dark);
+
+}
+
+
+/* ==================================================
+   BACKGROUND
+================================================== */
+
+body::before,
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    z-index: -1;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    pointer-events: none;
+
+}
+
+
+body::before {
+
+    width: 450px;
+
+    height: 450px;
+
+    top: -120px;
+
+    left: -120px;
+
+    background: #8B5CF6;
+
+    opacity: 0.14;
+
+}
+
+
+body::after {
+
+    width: 500px;
+
+    height: 500px;
+
+    right: -180px;
+
+    bottom: -180px;
+
+    background: #60A5FA;
+
+    opacity: 0.14;
+
+}
+
+
+/* ==================================================
+   SIDEBAR
+================================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    bottom: 20px;
+
+    width: 255px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 30px 20px;
+
+    background: rgba(255, 255, 255, 0.48);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+    z-index: 100;
+
+}
+
+
+/* ==================================================
+   SIDEBAR LOGO
+================================================== */
+
+.sidebar-logo {
+
+    padding: 5px 12px 28px;
+
+    border-bottom:
+        1px solid rgba(108, 99, 255, 0.10);
+
+}
+
+
+.sidebar-logo h2 {
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+
+    color: var(--dark);
+
+}
+
+
+.sidebar-logo h2 span {
+
+    color: var(--primary);
+
+}
+
+
+/* ==================================================
+   ADMIN BADGE
+================================================== */
+
+.admin-badge {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+
+    padding: 6px 10px;
+
+    color: var(--primary-dark);
+
+    background: rgba(124, 92, 255, 0.08);
+
+    border-radius: 10px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==================================================
+   SIDEBAR NAV
+================================================== */
+
+.sidebar-nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+}
+
+
+.sidebar-nav a,
+.sidebar-bottom a {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-height: 48px;
+
+    padding: 12px 16px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    border-radius: 15px;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.sidebar-nav a i,
+.sidebar-bottom a i {
+
+    width: 18px;
+
+    text-align: center;
+
+    font-size: 15px;
+
+}
+
+
+.sidebar-nav a:hover,
+.sidebar-bottom a:hover {
+
+    color: var(--primary);
+
+    background: rgba(124, 92, 255, 0.09);
+
+    transform: translateX(3px);
+
+}
+
+
+.sidebar-nav a.active {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7C5CFF,
+            #8B5CF6
+        );
+
+    box-shadow:
+        0 12px 25px
+        rgba(124, 92, 255, 0.25);
+
+}
+
+
+.sidebar-nav a.active:hover {
+
+    color: white;
+
+    transform: translateX(3px);
+
+}
+
+
+/* ==================================================
+   SIDEBAR BOTTOM
+================================================== */
+
+.sidebar-bottom {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-top: auto;
+
+    padding-top: 20px;
+
+    border-top:
+        1px solid rgba(108, 99, 255, 0.10);
+
+}
+
+
+.sidebar-bottom .logout-link {
+
+    color: #777;
+
+}
+
+
+.sidebar-bottom .logout-link:hover {
+
+    color: #EF4444;
+
+    background: rgba(239, 68, 68, 0.07);
+
+}
+
+
+.home-link {
+
+    color: #62677A;
+
+}
+
+
+/* ==================================================
+   MAIN
+================================================== */
+
+.main {
+
+    width: calc(100% - 255px);
+
+    margin-left: 255px;
+
+    padding: 55px 55px 60px;
+
+}
+
+
+/* ==================================================
+   HEADER
+================================================== */
+
+.top-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 35px;
+
+    padding: 10px 5px;
+
+}
+
+
+.page-label {
+
+    margin-bottom: 8px;
+
+    color: var(--primary);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+.welcome-text h1 {
+
+    margin-bottom: 10px;
+
+    color: var(--dark);
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    letter-spacing: -1px;
+
+}
+
+
+.welcome-text h1 span {
+
+    color: #000;
+
+    background: none;
+
+}
+
+
+.welcome-text p {
+
+    max-width: 620px;
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ==================================================
+   ADMIN PROFILE
+================================================== */
+
+.admin-profile {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 10px 15px;
+
+    flex-shrink: 0;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    backdrop-filter: blur(20px);
+
+    -webkit-backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(108, 99, 255, 0.08);
+
+}
+
+
+.admin-avatar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    flex-shrink: 0;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7C5CFF,
+            #8B5CF6
+        );
+
+    border-radius: 50%;
+
+    font-size: 16px;
+
+}
+
+
+.admin-profile-info strong {
+
+    display: block;
+
+    max-width: 180px;
+
+    overflow: hidden;
+
+    color: var(--dark);
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.admin-profile-info span {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+/* ==================================================
+   SUCCESS MESSAGE
+================================================== */
+
+.success-message {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+
+    padding: 15px 18px;
+
+    color: #166534;
+
+    background: rgba(220, 252, 231, 0.72);
+
+    border: 1px solid rgba(134, 239, 172, 0.65);
+
+    border-radius: 16px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+.success-message i {
+
+    font-size: 17px;
+
+}
+
+
+/* ==================================================
+   STATISTICS
+================================================== */
+
+.stats-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.stat-card {
+
+    min-height: 140px;
+
+    padding: 23px;
+
+    background: rgba(255, 255, 255, 0.48);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.72);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.3s ease;
+
+}
+
+
+.stat-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-hover);
+
+}
+
+
+.stat-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+}
+
+
+.stat-label {
+
+    margin-bottom: 6px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+}
+
+
+.stat-number {
+
+    color: var(--dark);
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    font-weight: 700;
+
+}
+
+
+.stat-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    font-size: 17px;
+
+}
+
+
+.company-icon {
+
+    color: var(--primary);
+
+    background: rgba(124, 92, 255, 0.10);
+
+}
+
+
+.internship-icon {
+
+    color: #2563EB;
+
+    background: rgba(96, 165, 250, 0.12);
+
+}
+
+
+.active-icon {
+
+    color: #16A34A;
+
+    background: rgba(34, 197, 94, 0.10);
+
+}
+
+
+.stat-description {
+
+    margin-top: 17px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+
+/* ==================================================
+   COMPANIES CARD
+================================================== */
+
+.companies-card {
+
+    padding: 27px;
+
+    background: rgba(255, 255, 255, 0.48);
+
+    backdrop-filter: blur(25px);
+
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.72);
+
+    border-radius: 28px;
+
+    box-shadow: var(--shadow);
+
+}
+
+
+/* ==================================================
+   CARD HEADER
+================================================== */
+
+.card-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.card-label {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+.card-header h2 {
+
+    color: var(--dark);
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+}
+
+
+.company-total {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    color: var(--primary-dark);
+
+    background: rgba(124, 92, 255, 0.08);
+
+    border-radius: 12px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==================================================
+   COMPANY LIST
+================================================== */
+
+.companies-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 13px;
+
+}
+
+
+/* ==================================================
+   COMPANY ITEM
+================================================== */
+
+.company-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 19px;
+
+    background: rgba(255, 255, 255, 0.36);
+
+    border: 1px solid rgba(108, 99, 255, 0.08);
+
+    border-radius: 20px;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.company-item:hover {
+
+    background: rgba(255, 255, 255, 0.60);
+
+    border-color:
+        rgba(124, 92, 255, 0.15);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(108, 99, 255, 0.09);
+
+}
+
+
+/* ==================================================
+   COMPANY LOGO
+================================================== */
+
+.company-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 80px;
+    height: 80px;
+
+    flex-shrink: 0;
+    overflow: hidden;
+
+    color: var(--primary);
+
+    background: rgba(255, 255, 255, 0.75);
+
+    border: 1px solid rgba(124, 92, 255, 0.08);
+
+    border-radius: 20px;
+
+    font-size: 25px;
+
+    padding: 10px;
+}
+
+.company-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+/* ==================================================
+   COMPANY INFO
+================================================== */
+
+.company-info {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.company-title-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 7px;
+
+    flex-wrap: wrap;
+
+}
+
+
+.company-title-row h3 {
+
+    overflow: hidden;
+
+    color: var(--dark);
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+}
+
+
+/* ==================================================
+   COMPANY STATUS
+================================================== */
+
+.active-company,
+.inactive-company {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 4px 8px;
+
+    border-radius: 50px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+}
+
+
+.active-company {
+
+    color: #166534;
+
+    background: rgba(220, 252, 231, 0.85);
+
+}
+
+
+.active-company i {
+
+    font-size: 5px;
+
+}
+
+
+.inactive-company {
+
+    color: #64748B;
+
+    background: rgba(226, 232, 240, 0.75);
+
+}
+
+
+.inactive-company i {
+
+    font-size: 5px;
+
+}
+
+
+/* ==================================================
+   COMPANY META
+================================================== */
+
+.company-meta {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 7px;
+
+}
+
+
+.company-meta span {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--text);
+
+    font-size: 11px;
+
+}
+
+
+.company-meta i {
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+}
+
+
+/* ==================================================
+   COMPANY EMAIL
+================================================== */
+
+.company-email {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    overflow: hidden;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+}
+
+
+.company-email i {
+
+    color: var(--primary);
+
+    flex-shrink: 0;
+
+}
+
+
+/* ==================================================
+   ACTIONS
+================================================== */
+
+.company-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+
+}
+
+
+.view-button,
+.delete-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 40px;
+
+    padding: 9px 13px;
+
+    border-radius: 12px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+}
+
+
+.view-button {
+
+    color: var(--primary-dark);
+
+    background: rgba(124, 92, 255, 0.09);
+
+    border: 1px solid rgba(124, 92, 255, 0.08);
+
+}
+
+
+.view-button:hover {
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7C5CFF,
+            #8B5CF6
+        );
+
+    border-color: transparent;
+
+    transform: translateY(-2px);
+
+}
+
+
+.delete-form {
+
+    margin: 0;
+
+}
+
+
+.delete-button {
+
+    color: #DC2626;
+
+    background: rgba(254, 226, 226, 0.70);
+
+    border: 1px solid rgba(254, 202, 202, 0.50);
+
+}
+
+
+.delete-button:hover {
+
+    color: white;
+
+    background: #EF4444;
+
+    border-color: #EF4444;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* ==================================================
+   EMPTY STATE
+================================================== */
+
+.empty-state {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+}
+
+
+.empty-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 70px;
+
+    height: 70px;
+
+    margin-bottom: 18px;
+
+    color: var(--primary);
+
+    background: rgba(124, 92, 255, 0.08);
+
+    border-radius: 22px;
+
+    font-size: 25px;
+
+}
+
+
+.empty-state h3 {
+
+    margin-bottom: 7px;
+
+    color: var(--dark);
+
+    font-size: 18px;
+
+}
+
+
+.empty-state p {
+
+    color: var(--muted);
+
+    font-size: 13px;
+
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 1200px) {
+
+    .main {
+
+        padding: 45px 35px 50px;
+
+    }
+
+}
+
+
+/* ==================================================
+   SMALL TABLET
+================================================== */
+
+@media (max-width: 992px) {
+
+    .sidebar {
+
+        width: 220px;
+
+    }
+
+
+    .main {
+
+        width: calc(100% - 220px);
+
+        margin-left: 220px;
+
+        padding: 40px 25px 45px;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .company-item {
+
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .company-actions {
+
+        width: 100%;
+
+        padding-left: 83px;
+
+    }
+
+
+}
+
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+
+        position: relative;
+
+        top: auto;
+
+        left: auto;
+
+        bottom: auto;
+
+        width: calc(100% - 30px);
+
+        min-height: auto;
+
+        margin: 15px;
+
+        padding: 22px 15px;
+
+        border-radius: 24px;
+
+    }
+
+
+    .sidebar-logo {
+
+        padding-bottom: 20px;
+
+    }
+
+
+    .sidebar-nav {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        margin-top: 20px;
+
+    }
+
+
+    .sidebar-bottom {
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        margin-top: 18px;
+
+    }
+
+
+    .main {
+
+        width: 100%;
+
+        margin-left: 0;
+
+        padding: 25px 15px 40px;
+
+    }
+
+
+    .top-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .admin-profile {
+
+        width: 100%;
+
+    }
+
+
+    .admin-profile-info strong {
+
+        max-width: none;
+
+    }
+
+
+    .stats-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .companies-card {
+
+        padding: 20px;
+
+        border-radius: 23px;
+
+    }
+
+
+    .card-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .company-item {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .company-info {
+
+        width: 100%;
+
+    }
+
+
+    .company-actions {
+
+        width: 100%;
+
+        padding-left: 0;
+
+    }
+
+
+    .view-button,
+    .delete-button {
+
+        flex: 1;
+
+    }
+
+}
+
+
+/* ==================================================
+   SMALL MOBILE
+================================================== */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+
+        width: calc(100% - 20px);
+
+        margin: 10px;
+
+    }
+
+
+    .sidebar-nav,
+    .sidebar-bottom {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .main {
+
+        padding: 20px 10px 35px;
+
+    }
+
+
+    .welcome-text h1 {
+
+        font-size: 2rem;
+
+    }
+
+
+    .stat-card {
+
+        min-height: 125px;
+
+    }
+
+
+    .company-item {
+
+        padding: 16px;
+
+    }
+
+
+    .company-title-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .company-title-row h3 {
+
+        white-space: normal;
+
+    }
+
+
+    .company-meta {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 7px;
+
+    }
+
+
+    .company-email {
+
+        white-space: normal;
+
+        overflow-wrap: anywhere;
+
+    }
+
+
+    .company-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+
+    .view-button,
+    .delete-button {
+
+        width: 100%;
+
+    }
+
+}

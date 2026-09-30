@@ -1,0 +1,30 @@
+# Local configuration
+.env
+.env.*
+!.env.example
+config.local.php
+
+# PHP / local server
+vendor/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# XAMPP/runtime
+xampp/
+logs/
+*.log
+
+# User-uploaded/private runtime data
+uploads/resumes/*
+!uploads/resumes/.gitkeep
+uploads/company_logos/*
+!uploads/company_logos/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS/editor files
+*.swp
+*.swo
